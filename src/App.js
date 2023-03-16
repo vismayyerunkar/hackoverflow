@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import Home from './components/Home.js'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from './components/Navbar';
+import Marketplace from './components/Marketplace';
+import Rental from './components/Rental';
+import Updates from './components/Updates';
+import { Community } from './components/Community';
+import { useEffect } from 'react';
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <BrowserRouter>
+        
+        <Routes>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/community" element={<Community/>}/>
+            <Route path="/marketplace" element={<Marketplace/>}/>
+            <Route path="/rental" element={<Rental/>}/>
+            <Route path="/updates" element={<Updates/>}/>
+        </Routes>
+    </BrowserRouter>
     </div>
   );
 }

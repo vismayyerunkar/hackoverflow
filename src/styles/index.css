@@ -7,7 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+*{
+  --primary-color:#54b435;
 }
+
+.pre-link{
+  list-style: none !important;
+  color: inherit;
+  text-decoration: inherit;
+  transform:transition 0.5s;
+}
+.pre-link:active{
+  list-style: none !important;
+}
+
