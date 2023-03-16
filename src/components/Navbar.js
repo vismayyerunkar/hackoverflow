@@ -17,7 +17,6 @@ const Navbar = () => {
     //   };
     
     //   useEffect(() => {
-        
     //     var addScript = document.createElement("script");
     //     addScript.setAttribute(
     //       "src",
@@ -25,24 +24,19 @@ const Navbar = () => {
     //     );
     //     document.body.appendChild(addScript);
     //     window.googleTranslateElementInit = googleTranslateElementInit;
-    //     console.log(document.getElementById("goog-gt-"))
         
     //     return ()=>{
-    //         console.log(document.getElementById("goog-gt-"))
-    //         addScript.remove();
+           
     //     }
-        
     //   }, []);
 
-
-    
   return (
     <nav className='nav-bar'>
         <div className='nav-logo'>
             <Link className='pre-link' to="/home"><img width="65px" height="60px" src={logo}/></Link>
         </div>
         <ul className='nav-items'>
-            <li className='nav-item'><Link className='pre-link' to="/home">Home</Link></li>
+            <li className='nav-item'><Link className='pre-link' to="/">Home</Link></li>
             <li className='nav-item'><Link className='pre-link' to="/community">Community</Link></li>
             <li className='nav-item'><Link className='pre-link' to="/marketplace">Marketplace</Link></li>
             <li className='nav-item'><Link className='pre-link' to="/rental">Rental</Link></li>
@@ -50,8 +44,8 @@ const Navbar = () => {
         </ul>
 
         <div className='nav-options'>
-            <div id="google_translate_element"></div>
-            <button className='logout-btn'>Logout</button>
+            {/* <div id="google_translate_element"></div> */}
+            <button className='profile-btn'>Visit Profile</button>
         </div>
     </nav>
   )

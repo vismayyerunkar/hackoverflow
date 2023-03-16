@@ -9,10 +9,13 @@
 }
 
 .nav-options{
+    display:flex;
     margin-right:20px;
+    align-items:center;
+    justify-content:center;
 }
 
-.logout-btn{
+.profile-btn{
     background:var(--primary-color);
     padding:10px;
     padding-left:20px;
@@ -25,7 +28,7 @@
     cursor:pointer;
     transform:transition 1s;
 }
-.logout-btn:hover{
+.profile-btn:hover{
     background:var(--primary-color);
     padding:10px;
     padding-left:20px;
@@ -39,7 +42,7 @@
     transform: scale(1.04);
 }
 
-.logout-btn:active{
+.profile-btn:active{
     background:var(--primary-color);
     padding:10px;
     padding-left:20px;
