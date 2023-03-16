@@ -7,6 +7,7 @@ import Rental from './components/Rental';
 import Updates from './components/Updates';
 import { Community } from './components/Community';
 import { useEffect } from 'react';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/marketplace" element={<Marketplace/>}/>
             <Route path="/rental" element={<Rental/>}/>
             <Route path="/updates" element={<Updates/>}/>
+            <Route path="/profile" element={<Profile/>}/>
         </Routes>
     </BrowserRouter>
     </div>
