@@ -1,10 +1,25 @@
 import React, { useContext, useState } from "react";
-import "../Styles/signup.css";
+import "../styles/signup.css";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
   const [contact, setContact] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    const res = await axios.post('http://172.17.29.30:5000/api/v1/u/login', {
+     contact, password
+    })
+    console.log(res.data)
+    localStorage.setItem('token', res.data.token);
+    if(res.data.success) navigate('/') 
+
+    // console.log("logined")
+  }
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
 
@@ -63,10 +78,10 @@ function Login() {
               required
             />
 
-            <button>Login</button>
+            <button onClick={handleSubmit}>Login</button>
 
             <small className="lower-small">
-              Need an account ? <a href="/signin"> SIGN UP </a>
+              Need an account ? <Link to="/signup"><a href=""> SIGN UP </a></Link>
             </small>
           </div>
         </div>

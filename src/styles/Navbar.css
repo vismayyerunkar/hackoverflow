@@ -1,11 +1,12 @@
 .nav-bar{
     width: 100vw;
-    height:65px;
+    height:100px;
     background-color: #f7f8fc;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.1);
     display:flex;
     align-items:center;
     justify-content:space-between;
+    padding:10px;
 }
 
 .nav-options{
@@ -19,6 +20,7 @@
     background:var(--primary-color);
     padding:10px;
     padding-left:20px;
+    margin-left:20px;
     padding-right:20px;
     border-radius:7px;
     outline:none  !important;
@@ -61,8 +63,8 @@
     align-items:center;
     justify-content:center;
     margin-left:20px;
+    /* border:1px solid red; */
 }
-
 
 .nav-logo:active{
     display:flex;
@@ -94,4 +96,10 @@
 
 ul{
     list-style:none !important;
+}
+
+ul li 
+{
+    font-size:22px;
+    margin-left:15px;
 }

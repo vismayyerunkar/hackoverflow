@@ -3,8 +3,16 @@ import "../styles/Home.css";
 import NavBar from "./Navbar.js";
 import Footer from "./Footer.js";
 import {Link} from "react-router-dom"
+import '../styles/Footer.css'
 
 const Home = () => {
+
+  const handleLogout = ()=>{
+      if(localStorage.getItem('token')){
+        localStorage.clear();
+      }
+  }
+
   return (
     <>
       <NavBar />
@@ -13,7 +21,7 @@ const Home = () => {
           <div className="left">
             <h1>If the farmer is rich, then so is the nation</h1>
             <div className="hsbuttons">
-              <Link className="pre-link" to="/signup"><button className="logout-btn btn1">Sign up</button></Link>
+              <Link onClick={()=>handleLogout()} className="pre-link" to="/signup"><button className="logout-btn btn1">{!localStorage.getItem('token') ? "Sign up" : "Logout"}</button></Link>
               <button className="btn2">About Us</button>
             </div>
           </div>
@@ -43,7 +51,19 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <>
+      <div className='footer'>
+        <div className='left'>
+            <h1>Atmanirbhar Kisan</h1>
+        </div>
+        <div className='right'>
+        <i className="fa-brands fa-instagram"></i>
+        <i className="fa-brands fa-square-facebook"></i>
+        <i className="fa-brands fa-square-twitter"></i>
+        <i className="fa-brands fa-square-twitter"></i>
+        </div>
+    </div>
+    </>
     </>
   );
 };

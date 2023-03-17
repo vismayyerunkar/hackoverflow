@@ -1,15 +1,29 @@
 import React, { useState } from "react";
 import "../styles/signup.css";
+import {Link, useNavigate} from "react-router-dom"
+import axios from "axios";
 
 function SignUp() {
   const [name, setName] = useState("");
   const [contact, setContact] = useState(0);
-  const [aadhar, setAadhar] = useState("");
+  const [adhar, setadhar] = useState("");
   const [password, setPassword] = useState("");
   const [role , setRole] = useState("");
   const [document, setDocument] = useState("");
   const [place , setPlace] = useState("")
 
+
+
+  const navigate = useNavigate();
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    const res = await axios.post('http://172.17.29.30:5000/api/v1/u/signup', {
+     name, contact, adhar, password, role, location: place
+    })
+    // console.log(res)
+    localStorage.setItem('token', res.data.token);
+    navigate('/')
+  }
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
@@ -79,20 +93,20 @@ function SignUp() {
               />
 
               <input
-                type="Aadhar Number"
-                name="Aadhar"
-                placeholder="Enter Aadhar number"
+                type="adhar Number"
+                name="adhar"
+                placeholder="Enter adhar number"
                 required
-                onChange={(e) => setAadhar(e.target.value)}
+                onChange={(e) => setadhar(e.target.value)}
               />
 
-              <input
+              {/* <input
               type="file"
               name="document"
               placeholder="verification docs"
               onChange={(e) => setDocument(e.target.file)}
               required
-              className="file-input"/>
+              className="file-input"/> */}
 
               <select name="role" required onChange={(e) => setRole(e.target.value)}>
                 <option>Select Role</option>
@@ -108,11 +122,13 @@ function SignUp() {
                 required
               />
 
-              <button>Sign up</button>
+              <button onClick={handleSubmit}>Sign up</button>
 
+              <Link className="pre-link" to="/login">
               <small className="lower-small">
                 Already have an account ? <a href="/login"> LOGIN </a>
               </small>
+              </Link>
               
             </div>
           </div>
